@@ -1,0 +1,68 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="32" fill="#0D1319"/>
+  <!-- Main card -->
+  <rect x="56" y="60" width="1088" height="640" rx="24" fill="#131A22"/>
+
+  <!-- App header bar -->
+  <defs>
+    <clipPath id="card-ep">
+      <rect x="56" y="60" width="1088" height="640" rx="24"/>
+    </clipPath>
+  </defs>
+  <rect x="56" y="60" width="1088" height="68" fill="#0F151B" clip-path="url(#card-ep)"/>
+  <rect x="96" y="79" width="134" height="26" rx="8" fill="#D7E0EA" fill-opacity="0.2"/>
+  <rect x="1040" y="77" width="82" height="30" rx="10" fill="#9AFF2D" fill-opacity="0.28"/>
+
+  <!-- Step progress indicator (4 steps, centered at x=600) -->
+  <!-- Step 1 active -->
+  <circle cx="462" cy="168" r="16" fill="#9AFF2D" fill-opacity="0.85"/>
+  <rect x="476" y="166" width="62" height="4" rx="2" fill="#9AFF2D" fill-opacity="0.5"/>
+  <!-- Step 2 partial -->
+  <circle cx="554" cy="168" r="16" fill="#9AFF2D" fill-opacity="0.28"/>
+  <rect x="568" y="166" width="62" height="4" rx="2" fill="#D7E0EA" fill-opacity="0.14"/>
+  <!-- Step 3 inactive -->
+  <circle cx="646" cy="168" r="16" fill="#D7E0EA" fill-opacity="0.09"/>
+  <rect x="660" y="166" width="62" height="4" rx="2" fill="#D7E0EA" fill-opacity="0.1"/>
+  <!-- Step 4 inactive -->
+  <circle cx="738" cy="168" r="16" fill="#D7E0EA" fill-opacity="0.09"/>
+
+  <!-- Form card (centered) -->
+  <rect x="232" y="210" width="736" height="480" rx="20" fill="#0F151B"/>
+
+  <!-- Form title -->
+  <rect x="280" y="250" width="238" height="30" rx="10" fill="#D7E0EA" fill-opacity="0.22"/>
+  <rect x="280" y="294" width="456" height="15" rx="6" fill="#D7E0EA" fill-opacity="0.11"/>
+
+  <!-- Field row 1: two fields side by side -->
+  <rect x="280" y="332" width="310" height="50" rx="12" fill="#141C24"/>
+  <rect x="280" y="332" width="310" height="50" rx="12" stroke="#D7E0EA" stroke-opacity="0.09" stroke-width="1"/>
+  <rect x="298" y="351" width="124" height="13" rx="5" fill="#D7E0EA" fill-opacity="0.17"/>
+
+  <rect x="610" y="332" width="310" height="50" rx="12" fill="#141C24"/>
+  <rect x="610" y="332" width="310" height="50" rx="12" stroke="#9AFF2D" stroke-opacity="0.35" stroke-width="1"/>
+  <rect x="628" y="351" width="96" height="13" rx="5" fill="#9AFF2D" fill-opacity="0.3"/>
+
+  <!-- Field row 2: full width -->
+  <rect x="280" y="400" width="640" height="50" rx="12" fill="#141C24"/>
+  <rect x="280" y="400" width="640" height="50" rx="12" stroke="#D7E0EA" stroke-opacity="0.09" stroke-width="1"/>
+  <rect x="298" y="419" width="172" height="13" rx="5" fill="#D7E0EA" fill-opacity="0.17"/>
+
+  <!-- Field row 3: two fields -->
+  <rect x="280" y="468" width="310" height="50" rx="12" fill="#141C24"/>
+  <rect x="280" y="468" width="310" height="50" rx="12" stroke="#D7E0EA" stroke-opacity="0.09" stroke-width="1"/>
+  <rect x="298" y="487" width="104" height="13" rx="5" fill="#D7E0EA" fill-opacity="0.17"/>
+
+  <rect x="610" y="468" width="310" height="50" rx="12" fill="#141C24"/>
+  <rect x="610" y="468" width="310" height="50" rx="12" stroke="#D7E0EA" stroke-opacity="0.09" stroke-width="1"/>
+  <rect x="628" y="487" width="126" height="13" rx="5" fill="#D7E0EA" fill-opacity="0.17"/>
+
+  <!-- Textarea-style field -->
+  <rect x="280" y="536" width="640" height="76" rx="12" fill="#141C24"/>
+  <rect x="280" y="536" width="640" height="76" rx="12" stroke="#D7E0EA" stroke-opacity="0.09" stroke-width="1"/>
+  <rect x="298" y="554" width="196" height="13" rx="5" fill="#D7E0EA" fill-opacity="0.14"/>
+  <rect x="298" y="577" width="312" height="13" rx="5" fill="#D7E0EA" fill-opacity="0.08"/>
+
+  <!-- CTA button -->
+  <rect x="280" y="630" width="640" height="50" rx="14" fill="#9AFF2D" fill-opacity="0.88"/>
+  <rect x="524" y="649" width="152" height="14" rx="5" fill="#0D1319" fill-opacity="0.55"/>
+</svg>

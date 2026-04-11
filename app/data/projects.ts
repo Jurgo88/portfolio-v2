@@ -39,7 +39,7 @@ export const projects: ProjectDetail[] = [
       en: "Scalable architecture enabling rapid feature iteration",
       sk: "Škálovateľná architektúra umožňujúca rýchle pridávanie funkcií",
     },
-    image: "/previews/pristupio.webp",
+    image: "/previews/project-pristupio.svg",
     hero: {
       title: "Pristupio Platform",
       summary: {
