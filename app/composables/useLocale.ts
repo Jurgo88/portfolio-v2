@@ -22,29 +22,6 @@ projects_eyebrow: 'Selected Work',
 projects_h2: 'Work That Drives Real Results',
 projects_intro: 'Selected projects focused on performance, UX, and scalable architecture.',
 
-project_0_title: 'Pristupio Platform',
-project_0_description: 'Scalable web platform built with performance-first architecture and modular frontend design.',
-project_0_result: 'Ongoing product development with scalable architecture',
-project_0_challenge: 'Designing a flexible system that supports long-term growth and rapid iteration.',
-project_0_approach: 'Modular Vue architecture and structured state management.',
-
-project_1_title: 'Checkout Revamp For Subscription SaaS',
-project_1_description: 'Improved checkout flow to reduce friction and increase conversions.',
-project_1_result: '+22% checkout conversion',
-project_1_challenge: 'Multi-step flow caused friction.',
-project_1_approach: 'Simplified UX and faster interactions.',
-
-project_2_title: 'SEO-Led Platform Migration',
-project_2_description: 'Migrated SPA to SSR with better SEO and performance.',
-project_2_result: '+64% organic traffic',
-project_2_challenge: 'Poor indexing and slow load times.',
-project_2_approach: 'SSR and structured metadata.',
-
-project_3_title: 'Dashboard Performance Optimization',
-project_3_description: 'Optimized rendering for heavy data dashboards.',
-project_3_result: '-41% time to interactive',
-project_3_challenge: 'Slow initial rendering.',
-project_3_approach: 'Code splitting and virtualization.',
 
 about_eyebrow: 'How I Think',
 about_h2_1: 'Frontend is not just UI.',
@@ -86,9 +63,6 @@ cta_btn: 'Get in touch',
 
 footer_built: 'Built with Nuxt 3.',
 
-card_challenge: 'Challenge:',
-card_approach: 'Approach:',
-
 page_title: 'Juraj | Frontend Engineer',
 page_description: 'Frontend engineer focused on performance and scalable web apps.',
 
@@ -115,30 +89,6 @@ value_2: 'Frontend s dôrazom na výkon.',
 projects_eyebrow: 'Projekty',
 projects_h2: 'Reálne výsledky',
 projects_intro: 'Výkon, UX a škálovanie.',
-
-project_0_title: 'Pristupio platforma',
-project_0_description: 'Škálovateľná aplikácia s dôrazom na výkon.',
-project_0_result: 'Aktívny vývoj',
-project_0_challenge: 'Návrh flexibilnej architektúry.',
-project_0_approach: 'Modulárny frontend a state management.',
-
-project_1_title: 'Checkout optimalizácia',
-project_1_description: 'Zlepšenie konverzií.',
-project_1_result: '+22%',
-project_1_challenge: 'Zložitý flow.',
-project_1_approach: 'Zjednodušenie UX.',
-
-project_2_title: 'SEO migrácia',
-project_2_description: 'Prechod na SSR.',
-project_2_result: '+64%',
-project_2_challenge: 'Indexovanie.',
-project_2_approach: 'SSR riešenie.',
-
-project_3_title: 'Dashboard výkon',
-project_3_description: 'Optimalizácia renderu.',
-project_3_result: '-41%',
-project_3_challenge: 'Pomalý render.',
-project_3_approach: 'Optimalizácia.',
 
 about_eyebrow: 'Ako uvažujem',
 about_h2_1: 'Frontend nie je len UI.',
@@ -180,8 +130,6 @@ cta_btn: 'Kontakt',
 
 footer_built: 'Postavené na Nuxt 3',
 
-card_challenge: 'Výzva:',
-card_approach: 'Prístup:',
 
 page_title: 'Juraj | Frontend',
 page_description: 'Frontend vývojár.',

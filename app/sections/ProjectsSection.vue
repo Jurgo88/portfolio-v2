@@ -1,60 +1,58 @@
 <script setup lang="ts">
+import { projects } from '~/data/projects'
+
 const root = ref<HTMLElement | null>(null)
+const track = ref<HTMLElement | null>(null)
 const { trackEvent } = useTracking()
 const { t } = useLocale()
 
-const projects = computed(() => [
-  {
-    title: t('project_1_title'),
-    description: t('project_1_description'),
-    result: t('project_1_result'),
-    challenge: t('project_1_challenge'),
-    approach: t('project_1_approach'),
-    image: '/previews/project-checkout.svg',
-    href: '#'
-  },
-  {
-    title: t('project_2_title'),
-    description: t('project_2_description'),
-    result: t('project_2_result'),
-    challenge: t('project_2_challenge'),
-    approach: t('project_2_approach'),
-    image: '/previews/project-seo.svg',
-    href: '#'
-  },
-  {
-    title: t('project_3_title'),
-    description: t('project_3_description'),
-    result: t('project_3_result'),
-    challenge: t('project_3_challenge'),
-    approach: t('project_3_approach'),
-    image: '/previews/project-performance.svg',
-    href: '#'
+let autoTimer: ReturnType<typeof setInterval> | null = null
+
+const scrollNext = () => {
+  if (!track.value) return
+  const el = track.value
+  const maxScroll = el.scrollWidth - el.clientWidth
+  if (el.scrollLeft >= maxScroll - 4) {
+    el.scrollTo({ left: 0, behavior: 'smooth' })
+  } else {
+    el.scrollBy({ left: 378, behavior: 'smooth' })
   }
-])
+}
+
+const startAuto = () => {
+  autoTimer = setInterval(scrollNext, 3500)
+}
+
+const stopAuto = () => {
+  if (autoTimer) clearInterval(autoTimer)
+}
 
 onMounted(async () => {
-  if (!root.value) {
-    return
-  }
+  if (!root.value) return
 
   const { gsap } = await useGsap()
 
   gsap.from(root.value.querySelectorAll<HTMLElement>('.project-reveal'), {
     autoAlpha: 0,
-    duration: 0.8,
+    duration: 2.8,
     ease: 'power2.out',
     stagger: 0.15,
-    y: 38,
+    // y: 20,
     scrollTrigger: {
       trigger: root.value,
-      start: 'top 72%'
+      start: 'top 72%',
+      onEnter: startAuto,
+      onLeave: stopAuto,
+      onEnterBack: startAuto,
+      onLeaveBack: stopAuto
     }
   })
 })
 
-const onProjectOpen = (title: string) => {
-  trackEvent('project_open', { title, location: 'projects_section' })
+onUnmounted(stopAuto)
+
+const onProjectOpen = (slug: string) => {
+  trackEvent('project_open', { slug, location: 'projects_section' })
 }
 </script>
 
@@ -64,22 +62,22 @@ const onProjectOpen = (title: string) => {
       <p class="projects__eyebrow project-reveal">{{ t('projects_eyebrow') }}</p>
       <h2 class="project-reveal">{{ t('projects_h2') }}</h2>
       <p class="projects__intro project-reveal">{{ t('projects_intro') }}</p>
+    </div>
 
-      <div class="projects__grid">
-        <ProjectCard
+    <div class="projects__strip" @mouseenter="stopAuto" @mouseleave="startAuto">
+      <div ref="track" class="projects__track">
+        <ProjectsProjectCard
           v-for="project in projects"
-          :key="project.title"
+          :key="project.slug"
           class="project-reveal"
-          :description="project.description"
-          :challenge="project.challenge"
-          :approach="project.approach"
-          :href="project.href"
-          :image="project.image"
-          :result="project.result"
-          :title="project.title"
-          @open="onProjectOpen"
+          :project="project"
+          @click="onProjectOpen(project.slug)"
         />
       </div>
+
+      <button class="projects__arrow" aria-label="Next project" @click="scrollNext">
+        →
+      </button>
     </div>
   </section>
 </template>
@@ -87,6 +85,12 @@ const onProjectOpen = (title: string) => {
 <style scoped lang="scss">
 .projects {
   border-top: 1px solid var(--border);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .projects__eyebrow {
@@ -112,22 +116,69 @@ h2 {
   max-width: 60ch;
 }
 
-.projects__grid {
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 34px;
+.projects__strip {
+  margin-top: 28px;
+  overflow-x: clip;
+  position: relative;
 }
 
-@media (max-width: 1100px) {
-  .projects__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.projects__track {
+  display: flex;
+  gap: 18px;
+  overflow-x: scroll;
+  overflow-y: visible;
+  padding: 12px 24px 24px;
+  padding-left: max(24px, calc((100vw - var(--container)) / 2 + 24px));
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
-@media (max-width: 760px) {
-  .projects__grid {
-    grid-template-columns: 1fr;
+.projects__track > :deep(*) {
+  flex: 0 0 360px;
+  scroll-snap-align: start;
+}
+
+.projects__arrow {
+  align-items: center;
+  background: rgba(10, 13, 16, 0.7);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  bottom: calc(24px + (100% - 48px) / 2);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  font-size: 1.1rem;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) translateY(-12px);
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  width: 48px;
+
+  &:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #0a0d10;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects__track > :deep(*) {
+    flex-basis: calc(100vw - 64px);
+  }
+
+  .projects__arrow {
+    display: none;
   }
 }
 </style>
