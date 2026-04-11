@@ -1,0 +1,77 @@
+:root {
+  --bg: #0a0d10;
+  --bg-soft: #11151a;
+  --surface: #151b22;
+  --text: #f4f7fb;
+  --muted: #9ba6b2;
+  --accent: #9aff2d;
+  --border: rgba(255, 255, 255, 0.1);
+  --radius: 18px;
+  --container: 1160px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__nuxt {
+  margin: 0;
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 0%, rgba(154, 255, 45, 0.12), transparent 28%),
+    radial-gradient(circle at 90% 15%, rgba(154, 255, 45, 0.05), transparent 25%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Sora', 'Space Grotesk', 'Avenir Next', sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site-shell {
+  overflow: clip;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: var(--container);
+  padding: 0 24px;
+}
+
+.section-space {
+  padding: 100px 0;
+}
+
+@media (max-width: 800px) {
+  .section-space {
+    padding: 72px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
