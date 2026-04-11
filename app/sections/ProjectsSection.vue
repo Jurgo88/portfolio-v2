@@ -59,13 +59,13 @@ const onProjectOpen = (slug: string) => {
 <template>
   <section id="projects" ref="root" class="projects section-space">
     <div class="container">
-      <p class="projects__eyebrow project-reveal">{{ t('projects_eyebrow') }}</p>
+      <p class="projects_eyebrow project-reveal">{{ t('projects_eyebrow') }}</p>
       <h2 class="project-reveal">{{ t('projects_h2') }}</h2>
-      <p class="projects__intro project-reveal">{{ t('projects_intro') }}</p>
+      <p class="projects_intro project-reveal">{{ t('projects_intro') }}</p>
     </div>
 
-    <div class="projects__strip" @mouseenter="stopAuto" @mouseleave="startAuto">
-      <div ref="track" class="projects__track">
+    <div class="projects_strip" @mouseenter="stopAuto" @mouseleave="startAuto">
+      <div ref="track" class="projects_track">
         <ProjectsProjectCard
           v-for="project in projects"
           :key="project.slug"
@@ -75,7 +75,7 @@ const onProjectOpen = (slug: string) => {
         />
       </div>
 
-      <button class="projects__arrow" aria-label="Next project" @click="scrollNext">
+      <button class="projects_arrow" aria-label="Next project" @click="scrollNext">
         →
       </button>
     </div>
@@ -93,7 +93,7 @@ const onProjectOpen = (slug: string) => {
   align-items: flex-start;
 }
 
-.projects__eyebrow {
+.projects_eyebrow {
   color: var(--accent);
   font-size: 0.88rem;
   font-weight: 700;
@@ -110,19 +110,20 @@ h2 {
   max-width: 20ch;
 }
 
-.projects__intro {
+.projects_intro {
   color: var(--muted);
   margin: 0;
   max-width: 60ch;
 }
 
-.projects__strip {
+.projects_strip {
   margin-top: 28px;
   overflow-x: clip;
   position: relative;
+  padding: 0 24px;
 }
 
-.projects__track {
+.projects_track {
   display: flex;
   gap: 18px;
   overflow-x: scroll;
@@ -139,12 +140,12 @@ h2 {
   }
 }
 
-.projects__track > :deep(*) {
+.projects_track > :deep(*) {
   flex: 0 0 360px;
   scroll-snap-align: start;
 }
 
-.projects__arrow {
+.projects_arrow {
   align-items: center;
   background: rgba(10, 13, 16, 0.7);
   backdrop-filter: blur(6px);
@@ -173,11 +174,11 @@ h2 {
 }
 
 @media (max-width: 600px) {
-  .projects__track > :deep(*) {
+  .projects_track > :deep(*) {
     flex-basis: calc(100vw - 64px);
   }
 
-  .projects__arrow {
+  .projects_arrow {
     display: none;
   }
 }
