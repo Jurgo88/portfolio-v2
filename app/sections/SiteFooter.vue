@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const year = new Date().getFullYear()
+const { t } = useLocale()
 </script>
 
 <template>
@@ -7,7 +8,7 @@ const year = new Date().getFullYear()
     <div class="container site-footer__inner">
       <p>hello@yourdomain.com</p>
       <p>Bratislava, Slovakia</p>
-      <p>&copy; {{ year }} Juraj. Built with Nuxt 3.</p>
+      <p>&copy; {{ year }} Juraj. {{ t('footer_built') }}</p>
     </div>
   </footer>
 </template>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { trackEvent } = useTracking()
+const { t } = useLocale()
 
 const onBookCall = () => {
   trackEvent('cta_click', { label: 'Book A Call', location: 'final_cta' })
@@ -10,13 +11,11 @@ const onBookCall = () => {
   <section id="contact" class="cta section-space">
     <div class="container">
       <div class="cta__panel">
-        <p class="cta__eyebrow">Let&apos;s Build Something That Converts</p>
-        <h2>If your product deserves premium execution, let&apos;s talk.</h2>
-        <p>
-          Available for selected frontend consulting and high-impact implementation projects.
-        </p>
+        <p class="cta__eyebrow">{{ t('cta_eyebrow') }}</p>
+        <h2>{{ t('cta_h2') }}</h2>
+        <p>{{ t('cta_copy') }}</p>
         <UiBaseButton to="mailto:hello@yourdomain.com" variant="primary" @click="onBookCall">
-          Book A Call
+          {{ t('cta_btn') }}
         </UiBaseButton>
       </div>
     </div>

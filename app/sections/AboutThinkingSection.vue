@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const root = ref<HTMLElement | null>(null)
+const { t } = useLocale()
 
 onMounted(async () => {
   if (!root.value) {
@@ -26,30 +27,26 @@ onMounted(async () => {
   <section id="about" ref="root" class="about section-space">
     <div class="container about__grid">
       <div class="about__left about-reveal">
-        <p class="about__eyebrow">How I Think</p>
+        <p class="about__eyebrow">{{ t('about_eyebrow') }}</p>
         <h2>
-          I treat frontend as a
-          <span>growth system</span>,
-          not a visual layer.
+          {{ t('about_h2_1') }}
+          <span>{{ t('about_h2_accent') }}</span>{{ t('about_h2_2') }}
         </h2>
-        <p>
-          Clean architecture, measurable UX decisions, and ruthless performance discipline.
-          The goal is always stronger trust, lower friction, and better conversion.
-        </p>
+        <p>{{ t('about_copy') }}</p>
       </div>
 
       <div class="about__right">
         <article class="about-point about-reveal">
-          <h3>Performance</h3>
-          <p>Every animation, request, and render path is budgeted to protect Core Web Vitals.</p>
+          <h3>{{ t('about_perf_title') }}</h3>
+          <p>{{ t('about_perf_copy') }}</p>
         </article>
         <article class="about-point about-reveal">
-          <h3>UX Precision</h3>
-          <p>Interfaces are designed around decision clarity and action speed, not visual noise.</p>
+          <h3>{{ t('about_ux_title') }}</h3>
+          <p>{{ t('about_ux_copy') }}</p>
         </article>
         <article class="about-point about-reveal">
-          <h3>Scalability</h3>
-          <p>Component systems and state flows are structured for long-term product velocity.</p>
+          <h3>{{ t('about_scale_title') }}</h3>
+          <p>{{ t('about_scale_copy') }}</p>
         </article>
       </div>
     </div>

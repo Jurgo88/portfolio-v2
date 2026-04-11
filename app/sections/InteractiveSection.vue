@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const root = ref<HTMLElement | null>(null)
+const { t } = useLocale()
 const quality = ref(72)
 const animatedLift = ref(0)
 let gsapRef: any = null
@@ -10,9 +11,9 @@ const completionRate = computed(() => Math.min(96, 56 + quality.value * 0.42))
 const conversionLift = computed(() => Math.max(0, (quality.value - 40) * 0.58))
 
 const bars = computed(() => [
-  { label: 'UX completion rate', value: completionRate.value, suffix: '%' },
-  { label: 'Interaction latency', value: Math.max(0, 100 - (inputDelay.value / 3.1)), suffix: '%' },
-  { label: 'Perceived speed score', value: Math.max(0, 100 - lcp.value * 14), suffix: '%' }
+  { label: t('interactive_bar_1'), value: completionRate.value, suffix: '%' },
+  { label: t('interactive_bar_2'), value: Math.max(0, 100 - (inputDelay.value / 3.1)), suffix: '%' },
+  { label: t('interactive_bar_3'), value: Math.max(0, 100 - lcp.value * 14), suffix: '%' }
 ])
 
 watch(
@@ -61,18 +62,16 @@ onMounted(async () => {
 <template>
   <section ref="root" class="interactive section-space">
     <div class="container">
-      <p class="interactive__eyebrow interactive-reveal">Interactive Snapshot</p>
-      <h2 class="interactive-reveal">Product Quality Simulator</h2>
-      <p class="interactive__lead interactive-reveal">
-        A simple model of how frontend quality can influence speed perception and business outcomes.
-      </p>
+      <p class="interactive__eyebrow interactive-reveal">{{ t('interactive_eyebrow') }}</p>
+      <h2 class="interactive-reveal">{{ t('interactive_h2') }}</h2>
+      <p class="interactive__lead interactive-reveal">{{ t('interactive_lead') }}</p>
 
       <div class="interactive__panel interactive-reveal">
         <div class="interactive__controls">
-          <label for="quality">Frontend quality level: <strong>{{ quality }}</strong></label>
+          <label for="quality">{{ t('interactive_label') }} <strong>{{ quality }}</strong></label>
           <input id="quality" v-model.number="quality" type="range" min="0" max="100" step="1" />
           <p>
-            Predicted conversion impact:
+            {{ t('interactive_conversion') }}
             <span>+{{ animatedLift.toFixed(1) }}%</span>
           </p>
         </div>
@@ -89,8 +88,8 @@ onMounted(async () => {
           </article>
 
           <div class="interactive__statline">
-            <p>Estimated LCP: <strong>{{ lcp.toFixed(2) }}s</strong></p>
-            <p>Input delay: <strong>{{ inputDelay.toFixed(0) }}ms</strong></p>
+            <p>{{ t('interactive_lcp') }} <strong>{{ lcp.toFixed(2) }}s</strong></p>
+            <p>{{ t('interactive_fid') }} <strong>{{ inputDelay.toFixed(0) }}ms</strong></p>
           </div>
         </div>
       </div>

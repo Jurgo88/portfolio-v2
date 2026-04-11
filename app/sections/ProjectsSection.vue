@@ -1,36 +1,37 @@
 <script setup lang="ts">
 const root = ref<HTMLElement | null>(null)
 const { trackEvent } = useTracking()
+const { t } = useLocale()
 
-const projects = [
+const projects = computed(() => [
   {
-    title: 'Checkout Revamp For Subscription SaaS',
-    description: 'Rebuilt checkout experience to reduce drop-off and lift paid conversions across desktop and mobile.',
-    result: '+22% checkout conversion',
-    challenge: 'Multi-step flow caused friction after pricing selection.',
-    approach: 'Progressive forms, cleaner state handling, and faster interaction feedback.',
+    title: t('project_1_title'),
+    description: t('project_1_description'),
+    result: t('project_1_result'),
+    challenge: t('project_1_challenge'),
+    approach: t('project_1_approach'),
     image: '/previews/project-checkout.svg',
     href: '#'
   },
   {
-    title: 'SEO-Led Content Platform Migration',
-    description: 'Migrated a legacy SPA to Nuxt SSR with technical SEO architecture and content performance tuning.',
-    result: '+64% organic traffic',
-    challenge: 'Indexing instability and slow page delivery from legacy rendering.',
-    approach: 'SSR routing, metadata templates, and cached payload strategy.',
+    title: t('project_2_title'),
+    description: t('project_2_description'),
+    result: t('project_2_result'),
+    challenge: t('project_2_challenge'),
+    approach: t('project_2_approach'),
     image: '/previews/project-seo.svg',
     href: '#'
   },
   {
-    title: 'Performance Sprint For Enterprise Dashboard',
-    description: 'Optimized rendering bottlenecks and interaction paths for high-frequency internal users.',
-    result: '-41% time to interactive',
-    challenge: 'Heavy data grids produced slow initial interactivity.',
-    approach: 'Bundle splitting, virtualized tables, and scoped hydration.',
+    title: t('project_3_title'),
+    description: t('project_3_description'),
+    result: t('project_3_result'),
+    challenge: t('project_3_challenge'),
+    approach: t('project_3_approach'),
     image: '/previews/project-performance.svg',
     href: '#'
   }
-]
+])
 
 onMounted(async () => {
   if (!root.value) {
@@ -60,11 +61,9 @@ const onProjectOpen = (title: string) => {
 <template>
   <section id="projects" ref="root" class="projects section-space">
     <div class="container">
-      <p class="projects__eyebrow project-reveal">Selected Work</p>
-      <h2 class="project-reveal">Projects Built To Move Business Metrics</h2>
-      <p class="projects__intro project-reveal">
-        Real outcomes from frontend engineering decisions grounded in performance, conversion, and SEO.
-      </p>
+      <p class="projects__eyebrow project-reveal">{{ t('projects_eyebrow') }}</p>
+      <h2 class="project-reveal">{{ t('projects_h2') }}</h2>
+      <p class="projects__intro project-reveal">{{ t('projects_intro') }}</p>
 
       <div class="projects__grid">
         <ProjectCard

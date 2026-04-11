@@ -1,12 +1,13 @@
 <script setup lang="ts">
 const root = ref<HTMLElement | null>(null)
 const { trackEvent } = useTracking()
+const { t } = useLocale()
 
-const links = [
-  { label: 'Work', to: '#projects' },
-  { label: 'About', to: '#about' },
-  { label: 'Contact', to: '#contact' }
-]
+const links = computed(() => [
+  { label: t('nav_work'), to: '#projects' },
+  { label: t('nav_about'), to: '#about' },
+  { label: t('nav_contact'), to: '#contact' }
+])
 
 onMounted(async () => {
   if (!root.value) {
@@ -48,8 +49,9 @@ const onPrimaryCtaClick = () => {
         </a>
       </nav>
 
-      <UiBaseButton to="#contact" variant="ghost" aria-label="Start project" @click="onPrimaryCtaClick">
-        Start Project
+      <UiLangSwitcher />
+      <UiBaseButton to="#contact" variant="ghost" :aria-label="t('nav_cta')" @click="onPrimaryCtaClick">
+        {{ t('nav_cta') }}
       </UiBaseButton>
     </div>
   </header>

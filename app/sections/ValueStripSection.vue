@@ -2,6 +2,7 @@
 const root = ref<HTMLElement | null>(null)
 const track = ref<HTMLElement | null>(null)
 let loopTween: { kill: () => void } | null = null
+const { t } = useLocale()
 
 onMounted(async () => {
   if (!root.value || !track.value) {
@@ -37,10 +38,10 @@ onBeforeUnmount(() => {
   <section ref="root" class="value-strip" aria-label="Key value points">
     <div class="value-strip__viewport">
       <div ref="track" class="value-strip__track">
-        <p>Fast. Scalable. SEO-ready.</p>
-        <p>Conversion-focused frontend engineering.</p>
-        <p>Fast. Scalable. SEO-ready.</p>
-        <p>Conversion-focused frontend engineering.</p>
+        <p>{{ t('value_1') }}</p>
+        <p>{{ t('value_2') }}</p>
+        <p>{{ t('value_1') }}</p>
+        <p>{{ t('value_2') }}</p>
       </div>
     </div>
   </section>

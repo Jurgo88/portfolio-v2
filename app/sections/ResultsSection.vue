@@ -1,14 +1,15 @@
 <script setup lang="ts">
 const root = ref<HTMLElement | null>(null)
+const { t } = useLocale()
 
-const metrics = [
-  { label: 'Faster load time', value: 43, suffix: '%' },
-  { label: 'Improved conversion', value: 27, suffix: '%' },
-  { label: 'Lighthouse performance', value: 96, suffix: '/100' },
-  { label: 'Reduced support friction', value: 31, suffix: '%' }
-]
+const metrics = computed(() => [
+  { label: t('result_1'), value: 43, suffix: '%' },
+  { label: t('result_2'), value: 27, suffix: '%' },
+  { label: t('result_3'), value: 96, suffix: '/100' },
+  { label: t('result_4'), value: 31, suffix: '%' }
+])
 
-const displayed = ref(metrics.map(() => 0))
+const displayed = ref(metrics.value.map(() => 0))
 
 const formatMetric = (value: number) => Math.round(value)
 
@@ -31,7 +32,7 @@ onMounted(async () => {
     }
   })
 
-  metrics.forEach((metric, index) => {
+  metrics.value.forEach((metric, index) => {
     const state = { value: 0 }
 
     gsap.to(state, {
@@ -54,12 +55,12 @@ onMounted(async () => {
 <template>
   <section ref="root" class="results section-space">
     <div class="container">
-      <p class="results__eyebrow">Results</p>
-      <h2>Outcomes Clients Actually Care About</h2>
+      <p class="results__eyebrow">{{ t('results_eyebrow') }}</p>
+      <h2>{{ t('results_h2') }}</h2>
 
       <div class="results__grid">
         <article v-for="(metric, index) in metrics" :key="metric.label" class="result-card">
-          <p class="result-card__value">{{ formatMetric(displayed[index]) }}{{ metric.suffix }}</p>
+          <p class="result-card__value">{{ formatMetric(displayed[index] ?? 0) }}{{ metric.suffix }}</p>
           <p class="result-card__label">{{ metric.label }}</p>
         </article>
       </div>

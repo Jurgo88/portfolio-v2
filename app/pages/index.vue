@@ -9,16 +9,17 @@ import SiteFooter from '~/sections/SiteFooter.vue'
 import TopNavSection from '~/sections/TopNavSection.vue'
 import ValueStripSection from '~/sections/ValueStripSection.vue'
 
-useHead({
-  title: 'Juraj | Frontend Engineer For High-Growth Products',
+const { t } = useLocale()
+
+useHead(computed(() => ({
+  title: t('page_title'),
   meta: [
     {
       name: 'description',
-      content:
-        'Frontend engineer focused on high-performance Nuxt applications, conversion-driven UX, and measurable business outcomes.'
+      content: t('page_description')
     }
   ]
-})
+})))
 </script>
 
 <template>

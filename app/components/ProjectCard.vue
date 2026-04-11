@@ -12,6 +12,8 @@ defineProps<{
 const emit = defineEmits<{
   (e: 'open', title: string): void
 }>()
+
+const { t } = useLocale()
 </script>
 
 <template>
@@ -31,8 +33,8 @@ const emit = defineEmits<{
         <h3>{{ title }}</h3>
         <p>{{ description }}</p>
         <ul>
-          <li><strong>Challenge:</strong> {{ challenge }}</li>
-          <li><strong>Approach:</strong> {{ approach }}</li>
+          <li><strong>{{ t('card_challenge') }}</strong> {{ challenge }}</li>
+          <li><strong>{{ t('card_approach') }}</strong> {{ approach }}</li>
         </ul>
       </div>
     </a>
