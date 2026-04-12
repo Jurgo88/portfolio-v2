@@ -2,7 +2,7 @@
 const props = withDefaults(
   defineProps<{
     to?: string
-    variant?: 'primary' | 'ghost'
+    variant?: 'primary' | 'ghost' | 'accent-outline'
     ariaLabel?: string
   }>(),
   {
@@ -15,7 +15,7 @@ const emit = defineEmits<{
   (e: 'click', event: MouseEvent): void
 }>()
 
-const isExternal = computed(() => /^(https?:\/\/|mailto:|tel:)/.test(props.to))
+const isExternal = computed(() => /^(https?:\/\/|mailto:|tel:|#)/.test(props.to))
 </script>
 
 <template>
@@ -36,6 +36,7 @@ const isExternal = computed(() => /^(https?:\/\/|mailto:|tel:)/.test(props.to))
   align-items: center;
   border: 1px solid transparent;
   border-radius: 999px;
+  cursor: pointer;
   display: inline-flex;
   font-size: 0.95rem;
   font-weight: 600;
@@ -65,6 +66,16 @@ const isExternal = computed(() => /^(https?:\/\/|mailto:|tel:)/.test(props.to))
   &:hover {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.base-btn--accent-outline {
+  border-color: rgba(154, 255, 45, 0.5);
+  color: var(--accent);
+
+  &:hover {
+    background: rgba(154, 255, 45, 0.08);
+    border-color: var(--accent);
   }
 }
 </style>

@@ -40,8 +40,10 @@ onBeforeUnmount(() => {
       <div ref="track" class="value-strip__track">
         <p>{{ t('value_1') }}</p>
         <p>{{ t('value_2') }}</p>
+        <p>{{ t('value_3') }}</p>
         <p>{{ t('value_1') }}</p>
         <p>{{ t('value_2') }}</p>
+        <p>{{ t('value_3') }}</p>
       </div>
     </div>
   </section>

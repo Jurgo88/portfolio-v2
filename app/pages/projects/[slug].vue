@@ -77,10 +77,15 @@ onMounted(async () => {
     <!-- Nav -->
     <header class="project-nav">
       <div class="container project-nav__inner">
-        <NuxtLink to="/" class="project-nav__brand">Juraj.</NuxtLink>
-        <NuxtLink to="/#projects" class="project-nav__back">
-          {{ labels.back }}
+        <NuxtLink to="/" class="project-nav__brand">
+          Juraj<span class="project-nav__brand-dot">.</span>
         </NuxtLink>
+        <div class="project-nav__right">
+          <UiLangSwitcher />
+          <NuxtLink to="/#projects" class="project-nav__back">
+            {{ labels.back }}
+          </NuxtLink>
+        </div>
       </div>
     </header>
 
@@ -242,13 +247,30 @@ onMounted(async () => {
 }
 
 .project-nav__brand {
+  cursor: pointer;
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.03em;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.project-nav__brand-dot {
+  color: var(--accent);
+}
+
+.project-nav__right {
+  align-items: center;
+  display: flex;
+  gap: 12px;
 }
 
 .project-nav__back {
   color: var(--muted);
+  cursor: pointer;
   font-size: 0.9rem;
   font-weight: 600;
   transition: color 0.2s ease;
