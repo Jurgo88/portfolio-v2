@@ -5,7 +5,7 @@ const { t } = useLocale()
 const metrics = computed(() => [
   { label: t('result_1'), value: 43, suffix: '%' },
   { label: t('result_2'), value: 27, suffix: '%' },
-  { label: t('result_3'), value: 96, suffix: '/100' },
+  { label: t('result_3'), value: 90, suffix: '+' },
   { label: t('result_4'), value: 31, suffix: '%' }
 ])
 
@@ -86,7 +86,7 @@ h2 {
   font-size: clamp(1.8rem, 4vw, 2.9rem);
   letter-spacing: -0.02em;
   margin: 14px 0 0;
-  max-width: 18ch;
+  // max-width: 18ch;
 }
 
 .results__grid {

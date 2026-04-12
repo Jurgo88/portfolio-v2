@@ -12,9 +12,15 @@ const onBookCall = () => {
     <div class="container">
       <div class="cta__panel">
         <p class="cta__eyebrow">{{ t('cta_eyebrow') }}</p>
-        <h2>{{ t('cta_h2') }}</h2>
+        <h2>
+          {{ t('cta_h2') }}<br />
+          <span class="cta__accent">{{ t('cta_h2_2') }}</span>
+        </h2>
+
         <p>{{ t('cta_copy') }}</p>
-        <UiBaseButton to="mailto:hello@yourdomain.com" variant="primary" @click="onBookCall">
+
+        <p class="cta__note">{{ t('cta_note') }}</p>
+        <UiBaseButton to="mailto:palus.dev@gmail.com" variant="primary" @click="onBookCall">
           {{ t('cta_btn') }}
         </UiBaseButton>
       </div>
@@ -33,6 +39,11 @@ const onBookCall = () => {
   border-radius: var(--radius);
   padding: clamp(24px, 4vw, 46px);
   text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(154, 255, 45, 0.2);
+  }
 
   h2 {
     font-size: clamp(1.7rem, 3.7vw, 3rem);

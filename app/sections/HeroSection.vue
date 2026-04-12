@@ -48,7 +48,8 @@ onMounted(async () => {
     x: 55,
     duration: 0.7,
     ease: 'power3.out',
-    delay: 0.52
+    delay: 0.52,
+    scale: 0.1
   })
 
   gsap.from([copy.value, cta.value], {
@@ -80,6 +81,18 @@ function attachMouseParallax(gsap: any) {
   const qL3x = gsap.quickTo(line3.value, 'x', { duration: 0.8, ease: 'power2' })
   const qL3y = gsap.quickTo(line3.value, 'y', { duration: 0.8, ease: 'power2' })
 
+  // Hover scale + line2 color shift
+  const onL3Enter = () => {
+    gsap.to(line3.value, { scale: 1.8, duration: 0.4, ease: 'back.out(1.7)', overwrite: 'auto' })
+    gsap.to(line2.value, { color: '#ffffff', duration: 0.3, ease: 'power2.out' })
+  }
+  const onL3Leave = () => {
+    gsap.to(line3.value, { scale: 1, duration: 0.35, ease: 'power2.inOut', overwrite: 'auto' })
+    gsap.to(line2.value, { color: 'var(--accent)', duration: 0.4, ease: 'power2.out' })
+  }
+  line3.value?.addEventListener('mouseenter', onL3Enter)
+  line3.value?.addEventListener('mouseleave', onL3Leave)
+
   const onMove = (e: MouseEvent) => {
     const rect = root.value!.getBoundingClientRect()
     // Normalizovaná poloha kurzora: -0.5 → 0.5
@@ -95,7 +108,7 @@ function attachMouseParallax(gsap: any) {
 
     // Riadok 2 — najrýchlejší + jemný skew pre dynamiku
     qL2x(nx * 22)
-    qL2y(ny * 9)
+    qL2y(ny * 90)
     qL2skew(nx * -1.5)
 
     // Riadok 3 — stredný pohyb
@@ -119,6 +132,8 @@ function attachMouseParallax(gsap: any) {
   cleanupMouse = () => {
     root.value?.removeEventListener('mousemove', onMove)
     root.value?.removeEventListener('mouseleave', onLeave)
+    line3.value?.removeEventListener('mouseenter', onL3Enter)
+    line3.value?.removeEventListener('mouseleave', onL3Leave)
   }
 }
 
@@ -134,17 +149,17 @@ const onCtaClick = (label: string) => {
 <template>
   <section id="top" ref="root" class="hero section-space">
     <div class="container">
-      <p ref="kicker" class="hero__kicker">{{ t('hero_kicker') }}</p>
+      <p ref="kicker" class="hero_kicker">{{ t('hero_kicker') }}</p>
 
       <h1>
-        <span ref="line1" class="hero__line hero__line--1">{{ t('hero_h1_1') }}</span>
-        <span ref="line2" class="hero__line hero__line--2">{{ t('hero_h1_2') }}</span>
-        <span ref="line3" class="hero__line hero__line--3">{{ t('hero_h1_3') }}</span>
+        <span ref="line1" class="hero_line hero_line-1">{{ t('hero_h1_1') }}</span>
+        <span ref="line2" class="hero_line hero_line-2">{{ t('hero_h1_2') }}</span>
+        <span ref="line3" class="hero_line hero_line-3">{{ t('hero_h1_3') }}</span>
       </h1>
 
-      <p ref="copy" class="hero__copy">{{ t('hero_copy') }}</p>
+      <p ref="copy" class="hero_copy">{{ t('hero_copy') }}</p>
 
-      <div ref="cta" class="hero__cta">
+      <div ref="cta" class="hero_cta">
         <UiBaseButton to="#projects" variant="primary" @click="onCtaClick(t('hero_cta_work'))">
           {{ t('hero_cta_work') }}
         </UiBaseButton>
@@ -161,7 +176,7 @@ const onCtaClick = (label: string) => {
   padding-top: 140px;
 }
 
-.hero__kicker {
+.hero_kicker {
   color: var(--accent);
   font-size: 0.78rem;
   font-weight: 700;
@@ -174,14 +189,14 @@ h1 {
   margin: 0;
 }
 
-.hero__line {
+.hero_line {
   display: block;
   line-height: 1.1;
   will-change: transform;
 }
 
 // Riadok 1 — prefix, tlmená farba, ľahká váha
-.hero__line--1 {
+.hero_line-1 {
   color: rgba(244, 247, 251, 0.35);
   font-size: clamp(1.4rem, 3.2vw, 2.6rem);
   font-weight: 400;
@@ -190,17 +205,18 @@ h1 {
 }
 
 // Riadok 2 — hero statement, dominantný
-.hero__line--2 {
+.hero_line-2 {
   color: var(--accent);
   font-size: clamp(3rem, 8.5vw, 7.2rem);
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 0.97;
   text-shadow: 0 0 60px rgba(154, 255, 45, 0.2);
+  text-transform: uppercase;
 }
 
 // Riadok 3 — záver s hover efektom
-.hero__line--3 {
+.hero_line-3 {
   color: rgba(244, 247, 251, 0.68);
   cursor: default;
   display: inline-block;
@@ -238,7 +254,7 @@ h1 {
   }
 }
 
-.hero__copy {
+.hero_copy {
   color: var(--muted);
   font-size: clamp(1rem, 2vw, 1.15rem);
   line-height: 1.65;
@@ -247,7 +263,7 @@ h1 {
   will-change: transform;
 }
 
-.hero__cta {
+.hero_cta {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -260,14 +276,14 @@ h1 {
     padding-top: 100px;
   }
 
-  .hero__line--2 {
+  .hero_line-2 {
     line-height: 1.0;
   }
 }
 
 // Na mobile vypni parallax (touch zariadenia nemajú mousemove)
 @media (hover: none) {
-  .hero__line {
+  .hero_line {
     will-change: auto;
   }
 }

@@ -30,7 +30,7 @@ onMounted(async () => {
         <p class="about__eyebrow">{{ t('about_eyebrow') }}</p>
         <h2>
           {{ t('about_h2_1') }}
-          <span>{{ t('about_h2_accent') }}</span>{{ t('about_h2_2') }}
+          <span>{{ t('about_h2_accent') }}</span> {{ t('about_h2_2') }}
         </h2>
         <p>{{ t('about_copy') }}</p>
       </div>
@@ -74,7 +74,6 @@ onMounted(async () => {
     letter-spacing: -0.02em;
     line-height: 1.12;
     margin: 0;
-    max-width: 13ch;
 
     span {
       color: var(--accent);

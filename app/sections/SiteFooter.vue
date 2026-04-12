@@ -6,9 +6,9 @@ const { t } = useLocale()
 <template>
   <footer class="site-footer">
     <div class="container site-footer__inner">
-      <p>hello@yourdomain.com</p>
-      <p>Bratislava, Slovakia</p>
-      <p>&copy; {{ year }} Juraj. {{ t('footer_built') }}</p>
+      <p>palus.dev@gmail.com</p>
+      <p>&copy; {{ year }} Created by <a href="https://jurgo.sk" target="_blank" rel="noopener noreferrer">Jurgo</a></p>
+      <p>{{ t('footer_built') }}</p>
     </div>
   </footer>
 </template>

@@ -267,7 +267,7 @@ onMounted(async () => {
     letter-spacing: -0.03em;
     line-height: 1.1;
     margin: 14px 0 16px;
-    max-width: 18ch;
+    // max-width: 18ch;
   }
 }
 
