@@ -39,7 +39,7 @@ const onBookCall = () => {
   border-radius: var(--radius);
   padding: clamp(24px, 4vw, 46px);
   text-align: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(154, 255, 45, 0.2);
@@ -56,6 +56,16 @@ const onBookCall = () => {
     margin: 14px auto 22px;
     max-width: 56ch;
   }
+}
+
+.cta__accent {
+  color: var(--accent);
+}
+
+.cta__note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 12px !important;
 }
 
 .cta__eyebrow {

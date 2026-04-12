@@ -105,7 +105,7 @@ const onPrimaryCtaClick = () => {
         <button
           class="top-nav__hamburger"
           :class="{ 'top-nav__hamburger--open': mobileOpen }"
-          :aria-label="mobileOpen ? 'Zavrieť menu' : 'Otvoriť menu'"
+          :aria-label="mobileOpen ? t('mobile_menu_close') : t('mobile_menu_open')"
           :aria-expanded="mobileOpen"
           @click="mobileOpen = !mobileOpen"
         >

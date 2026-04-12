@@ -65,7 +65,10 @@ cta_copy: 'Fast, scalable, and designed to deliver real results.',
 cta_note: 'Available for selected projects and long-term collaboration.',
 cta_btn: 'Get in touch',
 
-footer_built: 'Built with Nuxt 3.',
+footer_built: 'Built with Nuxt 3',
+
+mobile_menu_open: 'Open menu',
+mobile_menu_close: 'Close menu',
 
 page_title: 'Juraj Paluš | Frontend Engineer',
 page_description: 'Frontend engineer focused on performance and scalable web apps.',
@@ -77,7 +80,7 @@ sk: {
 nav_work: 'Práce',
 nav_about: 'O mne',
 nav_contact: 'Kontakt',
-nav_cta: 'Napište mi',
+nav_cta: 'Napíšte mi',
 
 hero_kicker: 'Frontend, ktorý prináša výsledky',
 hero_h1_1: 'Rýchlosť na prvom mieste',
@@ -138,9 +141,11 @@ cta_btn: 'Kontaktovať',
 
 footer_built: 'Built with Nuxt 3',
 
+mobile_menu_open: 'Otvoriť menu',
+mobile_menu_close: 'Zavrieť menu',
 
-page_title: 'Juraj | Frontend',
-page_description: 'Frontend vývojár.',
+page_title: 'Juraj Paluš | Frontend Engineer',
+page_description: 'Frontend inžinier zameraný na výkon a škálovateľné webové aplikácie.',
 
 
 }
