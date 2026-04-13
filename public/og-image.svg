@@ -1,0 +1,68 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0d10"/>
+
+  <!-- Green glow — top left -->
+  <radialGradient id="g1" cx="0%" cy="0%" r="60%" gradientUnits="userSpaceOnUse" x1="0" y1="0">
+    <stop offset="0%" stop-color="#9aff2d" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#9aff2d" stop-opacity="0"/>
+  </radialGradient>
+  <ellipse cx="120" cy="0" rx="520" ry="420" fill="url(#g1)"/>
+
+  <!-- Green glow — top right -->
+  <radialGradient id="g2" cx="100%" cy="0%" r="40%" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#9aff2d" stop-opacity="0.07"/>
+    <stop offset="100%" stop-color="#9aff2d" stop-opacity="0"/>
+  </radialGradient>
+  <ellipse cx="1100" cy="80" rx="360" ry="280" fill="url(#g2)"/>
+
+  <!-- Border frame -->
+  <rect x="40" y="40" width="1120" height="550" rx="20" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+
+  <!-- Available dot + pulse ring -->
+  <circle cx="80" cy="100" r="14" fill="none" stroke="#9aff2d" stroke-opacity="0.3" stroke-width="1"/>
+  <circle cx="80" cy="100" r="8" fill="#9aff2d"/>
+
+  <!-- Available label -->
+  <text x="102" y="105" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#9aff2d" letter-spacing="2">AVAILABLE FOR WORK</text>
+
+  <!-- Main name -->
+  <text x="80" y="290" font-family="Arial Black, Arial, sans-serif" font-size="100" font-weight="900" fill="#f4f7fb" letter-spacing="-4">JURAJ PALUŠ</text>
+
+  <!-- Role -->
+  <text x="84" y="348" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="400" fill="rgba(244,247,251,0.45)" letter-spacing="1">Frontend Engineer</text>
+
+  <!-- Accent underline under name -->
+  <rect x="80" y="302" width="560" height="3" rx="2" fill="#9aff2d" opacity="0.25"/>
+
+  <!-- Divider -->
+  <line x1="80" y1="410" x2="1120" y2="410" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+
+  <!-- Tech tags -->
+  <!-- Vue -->
+  <rect x="80" y="430" width="78" height="32" rx="8" fill="rgba(154,255,45,0.08)" stroke="rgba(154,255,45,0.2)" stroke-width="1"/>
+  <text x="119" y="451" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#9aff2d" text-anchor="middle">Vue 3</text>
+
+  <!-- Nuxt -->
+  <rect x="170" y="430" width="72" height="32" rx="8" fill="rgba(154,255,45,0.08)" stroke="rgba(154,255,45,0.2)" stroke-width="1"/>
+  <text x="206" y="451" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#9aff2d" text-anchor="middle">Nuxt 3</text>
+
+  <!-- TypeScript -->
+  <rect x="254" y="430" width="104" height="32" rx="8" fill="rgba(154,255,45,0.08)" stroke="rgba(154,255,45,0.2)" stroke-width="1"/>
+  <text x="306" y="451" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#9aff2d" text-anchor="middle">TypeScript</text>
+
+  <!-- React -->
+  <rect x="370" y="430" width="72" height="32" rx="8" fill="rgba(154,255,45,0.08)" stroke="rgba(154,255,45,0.2)" stroke-width="1"/>
+  <text x="406" y="451" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#9aff2d" text-anchor="middle">React</text>
+
+  <!-- GSAP -->
+  <rect x="454" y="430" width="68" height="32" rx="8" fill="rgba(154,255,45,0.08)" stroke="rgba(154,255,45,0.2)" stroke-width="1"/>
+  <text x="488" y="451" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#9aff2d" text-anchor="middle">GSAP</text>
+
+  <!-- Supabase -->
+  <rect x="534" y="430" width="90" height="32" rx="8" fill="rgba(154,255,45,0.08)" stroke="rgba(154,255,45,0.2)" stroke-width="1"/>
+  <text x="579" y="451" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#9aff2d" text-anchor="middle">Supabase</text>
+
+  <!-- Domain -->
+  <text x="1120" y="570" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="rgba(244,247,251,0.25)" text-anchor="end" letter-spacing="1">jurgo.sk</text>
+</svg>

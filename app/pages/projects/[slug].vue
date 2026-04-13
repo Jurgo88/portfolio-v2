@@ -31,11 +31,27 @@ const labels = computed(() => ({
   allProjects: locale.value === 'sk' ? '← Všetky projekty' : '← All projects',
 }))
 
+const pageTitle = computed(() => `${project!.title} — ${labels.value.caseStudy} | Juraj Paluš`)
+const pageDescription = computed(() => l(project!.hero.summary))
+const pageUrl = computed(() => `https://jurgo.sk/projects/${slug}`)
+
 useHead(computed(() => ({
-  title: `${project!.title} — ${labels.value.caseStudy} | Juraj`,
+  title: pageTitle.value,
+  link: [
+    { rel: 'canonical', href: pageUrl.value }
+  ],
   meta: [
-    { name: 'description', content: l(project!.hero.summary) }
-  ]
+    { name: 'description', content: pageDescription.value },
+    { property: 'og:title', content: pageTitle.value },
+    { property: 'og:description', content: pageDescription.value },
+    { property: 'og:type', content: 'article' },
+    { property: 'og:url', content: pageUrl.value },
+    { property: 'og:image', content: 'https://jurgo.sk/og-image.png' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: pageTitle.value },
+    { name: 'twitter:description', content: pageDescription.value },
+    { name: 'twitter:image', content: 'https://jurgo.sk/og-image.png' },
+  ],
 })))
 
 const root = ref<HTMLElement | null>(null)

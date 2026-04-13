@@ -6,6 +6,7 @@ nav_work: 'Work',
 nav_about: 'About',
 nav_contact: 'Contact',
 nav_cta: 'Email me',
+nav_available_tooltip: 'Available for new projects — get in touch',
 
 hero_kicker: 'Frontend Engineering That Drives Growth',
 hero_h1_1: 'Built for speed',
@@ -23,6 +24,9 @@ projects_eyebrow: 'Selected Work',
 projects_h2: 'Work That Drives Real Results',
 projects_intro: 'Selected projects focused on performance, UX, and scalable architecture.',
 
+
+experience_eyebrow: 'Experience',
+experience_h2: 'Where I\'ve Worked',
 
 about_eyebrow: 'How I Think',
 about_h2_1: 'Frontend is not just UI.',
@@ -52,6 +56,7 @@ interactive_fid: 'Delay:',
 
 results_eyebrow: 'Impact',
 results_h2: 'Results That Matter',
+results_context: 'Avg. across client projects',
 result_1: 'Faster load times',
 result_2: 'Higher conversion',
 result_3: 'Performance scores',
@@ -67,6 +72,10 @@ cta_btn: 'Get in touch',
 
 footer_built: 'Built with Nuxt 3',
 
+error_terminal: 'ERROR: route not found',
+error_copy: 'The page you\'re looking for doesn\'t exist or has been moved.',
+error_back: 'Back to home',
+
 mobile_menu_open: 'Open menu',
 mobile_menu_close: 'Close menu',
 
@@ -81,6 +90,7 @@ nav_work: 'Práce',
 nav_about: 'O mne',
 nav_contact: 'Kontakt',
 nav_cta: 'Napíšte mi',
+nav_available_tooltip: 'Dostupný pre nové projekty — ozvite sa',
 
 hero_kicker: 'Frontend, ktorý prináša výsledky',
 hero_h1_1: 'Rýchlosť na prvom mieste',
@@ -97,6 +107,9 @@ value_3: 'Vue / Nuxt · TypeScript · React · Supabase · GSAP',
 projects_eyebrow: 'Projekty',
 projects_h2: 'Reálne výsledky',
 projects_intro: 'Výkon, UX a škálovanie.',
+
+experience_eyebrow: 'Skúsenosti',
+experience_h2: 'Kde som pracoval',
 
 about_eyebrow: 'Ako uvažujem',
 
@@ -127,6 +140,7 @@ interactive_fid: 'Odozva:',
 
 results_eyebrow: 'Dopad',
 results_h2: 'Čo moja práca zlepšuje',
+results_context: 'Priemer naprieč klientskými projektmi',
 result_1: 'Rýchlejšie načítanie',
 result_2: 'Vyššie konverzie',
 result_3: 'Vyššie skóre aplikácie',
@@ -140,6 +154,10 @@ cta_note: 'Dostupný pre vybrané projekty a dlhodobú spoluprácu.',
 cta_btn: 'Kontaktovať',
 
 footer_built: 'Built with Nuxt 3',
+
+error_terminal: 'CHYBA: stránka nenájdená',
+error_copy: 'Stránka, ktorú hľadáte, neexistuje alebo bola presunutá.',
+error_back: 'Späť domov',
 
 mobile_menu_open: 'Otvoriť menu',
 mobile_menu_close: 'Zavrieť menu',

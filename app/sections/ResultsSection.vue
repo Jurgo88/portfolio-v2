@@ -57,6 +57,7 @@ onMounted(async () => {
     <div class="container">
       <p class="results__eyebrow">{{ t('results_eyebrow') }}</p>
       <h2>{{ t('results_h2') }}</h2>
+      <p class="results__context">{{ t('results_context') }}</p>
 
       <div class="results__grid">
         <article v-for="(metric, index) in metrics" :key="metric.label" class="result-card">
@@ -87,6 +88,14 @@ h2 {
   letter-spacing: -0.02em;
   margin: 14px 0 0;
   // max-width: 18ch;
+}
+
+.results__context {
+  color: var(--muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  margin: 8px 0 0;
+  text-transform: uppercase;
 }
 
 .results__grid {

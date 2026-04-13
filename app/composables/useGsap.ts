@@ -7,5 +7,9 @@ export const useGsap = async () => {
 
   gsap.registerPlugin(ScrollTrigger)
 
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    gsap.globalTimeline.timeScale(0)
+  }
+
   return { gsap, ScrollTrigger }
 }

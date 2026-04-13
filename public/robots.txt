@@ -1,2 +1,4 @@
 User-Agent: *
 Disallow:
+
+Sitemap: https://jurgo.sk/sitemap.xml

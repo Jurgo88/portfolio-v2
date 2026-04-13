@@ -1,12 +1,27 @@
 <script setup lang="ts">
 const year = new Date().getFullYear()
 const { t } = useLocale()
+
+const socials = [
+  { label: 'GitHub', href: 'https://github.com/jurgo-sk' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/juraj-palus' },
+]
 </script>
 
 <template>
   <footer class="site-footer">
     <div class="container site-footer__inner">
-      <p>palus.dev@gmail.com</p>
+      <div class="site-footer__contact">
+        <p>palus.dev@gmail.com</p>
+        <a
+          v-for="s in socials"
+          :key="s.label"
+          :href="s.href"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="site-footer__social"
+        >{{ s.label }}</a>
+      </div>
       <p>&copy; {{ year }} Created by <a href="https://jurgo.sk" target="_blank" rel="noopener noreferrer">Jurgo</a></p>
       <p>{{ t('footer_built') }}</p>
     </div>
@@ -20,6 +35,7 @@ const { t } = useLocale()
 }
 
 .site-footer__inner {
+  align-items: center;
   color: var(--muted);
   display: flex;
   flex-wrap: wrap;
@@ -28,6 +44,26 @@ const { t } = useLocale()
 
   p {
     margin: 0;
+  }
+}
+
+.site-footer__contact {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.site-footer__social {
+  color: var(--muted);
+  font-size: 0.88rem;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--text);
   }
 }
 </style>

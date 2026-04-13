@@ -70,7 +70,9 @@ const onPrimaryCtaClick = () => {
   <header ref="root" class="top-nav" :class="{ 'top-nav--scrolled': isScrolled }">
     <div class="container top-nav__inner">
       <a href="#top" class="top-nav__brand" @click="mobileOpen = false">
-        <span class="top-nav__brand-available" aria-label="Available for work" title="Available for work" />
+        <a href="#contact" class="top-nav__brand-available-wrap" :title="t('nav_available_tooltip')" @click.stop="mobileOpen = false">
+          <span class="top-nav__brand-available" :aria-label="t('nav_available_tooltip')" />
+        </a>
         <span class="top-nav__brand-text">
           <span v-for="(char, i) in 'Juraj'" :key="i" class="top-nav__brand-char" :style="{ '--i': i }">{{ char }}</span><span class="top-nav__brand-dot">.Paluš</span>
         </span>
@@ -198,6 +200,12 @@ const onPrimaryCtaClick = () => {
   &:hover .top-nav__brand-dot {
     animation: brandBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.32s both;
   }
+}
+
+.top-nav__brand-available-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .top-nav__brand-available {
