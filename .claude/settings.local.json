@@ -6,7 +6,9 @@
       "Bash(grep \"target=\\\\|rel=\" /c/Users/Juraj/Documents/portfolio/app/pages/*.vue /c/Users/Juraj/Documents/portfolio/app/sections/*.vue /c/Users/Juraj/Documents/portfolio/app/components/**/*.vue)",
       "Bash(grep -n \"await useGsap\" /c/Users/Juraj/Documents/portfolio/app/sections/*.vue)",
       "Bash(sed 's/:.*//')",
-      "Bash(sed 's/[^a-z_]//g')"
+      "Bash(sed 's/[^a-z_]//g')",
+      "Bash(node -e ':*)",
+      "Bash(node scripts/generate-og.mjs)"
     ]
   }
 }

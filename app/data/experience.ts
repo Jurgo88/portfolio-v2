@@ -13,7 +13,7 @@ export const experience: ExperienceItem[] = [
     period: { en: '2025 – Present', sk: '2025 – dnes' },
     description: {
       en: 'Developing and implementing new functionalities for an internal application supporting business process management. Administering and supporting the application including configuration and user support. Working with the database to query, update, and maintain data, and managing user access via Active Directory.',
-      sk: 'Vývoj a implementácia nových funkcií internej aplikácie pre správu obchodných procesov. Administrácia a podpora aplikácie vrátane konfigurácie a podpory používateľov. Práca s databázou a správa prístupov cez Active Directory.',
+      sk: 'Vývoj a implementácia nových funkcií internej aplikácie pre správu procesov. Administrácia a podpora aplikácie vrátane konfigurácie a podpory používateľov. Práca s databázou a správa prístupov cez Active Directory.',
     },
     tags: ['PHP', 'SQL', 'PhpStorm', 'SQL Server', 'Active Directory'],
   },
@@ -23,7 +23,7 @@ export const experience: ExperienceItem[] = [
     period: { en: '2023 – 2024', sk: '2023 – 2024' },
     description: {
       en: 'Developed an information system for highway workers to record events and provide solutions. Built server-side logic with PHP Laravel including routing and REST APIs. Created client-side views using Vue.js as the frontend layer.',
-      sk: 'Vývoj informačného systému pre pracovníkov diaľnic na evidenciu udalostí a riešení. Serverová logika v PHP Laravel vrátane routingu a REST API. Tvorba klientskych pohľadov vo Vue.js.',
+      sk: 'Vývoj informačného systému pre pracovníkov diaľnic na evidenciu udalostí a poskytovanie riešení. Serverová logika v PHP Laravel vrátane routingu a REST API. Tvorba klientskych pohľadov vo Vue.js.',
     },
     tags: ['PHP', 'Laravel', 'Vue.js', 'REST API', 'BootstrapVue'],
   },

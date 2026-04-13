@@ -212,7 +212,7 @@ h2 {
 // ── Body ──────────────────────────────────────────────────────────────────────
 .exp-row__body {
   overflow: hidden;
-  padding: 0 24px 22px;
+  padding: 22px;
 
   p {
     color: var(--muted);
