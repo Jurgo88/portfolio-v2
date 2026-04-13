@@ -31,9 +31,14 @@ const labels = computed(() => ({
   allProjects: locale.value === 'sk' ? '← Všetky projekty' : '← All projects',
 }))
 
+const localePath = useLocalePath()
+
 const pageTitle = computed(() => `${project!.title} — ${labels.value.caseStudy} | Juraj Paluš`)
 const pageDescription = computed(() => l(project!.hero.summary))
 const pageUrl = computed(() => `https://jurgo.sk/projects/${slug}`)
+
+const backToWork = computed(() => localePath({ path: '/', hash: '#projects' }))
+const backToContact = computed(() => localePath({ path: '/', hash: '#contact' }))
 
 useHead(computed(() => ({
   title: pageTitle.value,
@@ -42,15 +47,22 @@ useHead(computed(() => ({
   ],
   meta: [
     { name: 'description', content: pageDescription.value },
+    { name: 'robots', content: 'index, follow' },
     { property: 'og:title', content: pageTitle.value },
     { property: 'og:description', content: pageDescription.value },
     { property: 'og:type', content: 'article' },
     { property: 'og:url', content: pageUrl.value },
+    { property: 'og:site_name', content: 'Juraj Paluš' },
+    { property: 'og:locale', content: locale.value === 'sk' ? 'sk_SK' : 'en_US' },
     { property: 'og:image', content: 'https://jurgo.sk/og-image.png' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { property: 'og:image:alt', content: `${project!.title} — Juraj Paluš` },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: pageTitle.value },
     { name: 'twitter:description', content: pageDescription.value },
     { name: 'twitter:image', content: 'https://jurgo.sk/og-image.png' },
+    { name: 'twitter:image:alt', content: `${project!.title} — Juraj Paluš` },
   ],
 })))
 
@@ -98,7 +110,7 @@ onMounted(async () => {
         </NuxtLink>
         <div class="project-nav__right">
           <UiLangSwitcher />
-          <NuxtLink to="/#projects" class="project-nav__back">
+          <NuxtLink :to="backToWork" class="project-nav__back">
             {{ labels.back }}
           </NuxtLink>
         </div>
@@ -228,7 +240,7 @@ onMounted(async () => {
         <div class="container">
           <p class="eyebrow">{{ labels.cta }}</p>
           <h2>{{ labels.ctaHeading }}</h2>
-          <a href="/#contact" class="cta-btn">{{ labels.ctaBtn }}</a>
+          <NuxtLink :to="backToContact" class="cta-btn">{{ labels.ctaBtn }}</NuxtLink>
         </div>
       </section>
     </main>
@@ -237,7 +249,7 @@ onMounted(async () => {
     <footer class="project-footer">
       <div class="container project-footer__inner">
         <span>Juraj © {{ new Date().getFullYear() }}</span>
-        <NuxtLink to="/#projects">{{ labels.allProjects }}</NuxtLink>
+        <NuxtLink :to="backToWork">{{ labels.allProjects }}</NuxtLink>
       </div>
     </footer>
   </div>

@@ -1,0 +1,77 @@
+{
+  "nav_work": "Work",
+  "nav_about": "About",
+  "nav_contact": "Contact",
+  "nav_cta": "Email me",
+  "nav_available_tooltip": "Available for new projects — get in touch",
+
+  "hero_kicker": "Frontend Engineering That Drives Growth",
+  "hero_h1_1": "Built for speed",
+  "hero_h1_2": "Designed to scale",
+  "hero_h1_3": "Optimized for growth",
+  "hero_copy": "I design and build fast, scalable web applications that improve performance and drive measurable results.",
+  "hero_cta_work": "View Work",
+  "hero_cta_contact": "Let's Talk",
+
+  "value_1": "Fast. Scalable. Built to convert.",
+  "value_2": "Performance-first frontend engineering.",
+  "value_3": "Vue / Nuxt · TypeScript · React · Supabase · GSAP",
+
+  "projects_eyebrow": "Selected Work",
+  "projects_h2": "Work That Drives Real Results",
+  "projects_intro": "Selected projects focused on performance, UX, and scalable architecture.",
+
+  "experience_eyebrow": "Experience",
+  "experience_h2": "Where I've Worked",
+
+  "about_eyebrow": "How I Think",
+  "about_h2_1": "Frontend is not just UI.",
+  "about_h2_accent": "Performance. Scale. Results.",
+  "about_h2_2": "Every detail matters.",
+  "about_copy": "I build frontend systems that are fast, maintainable, and designed for real-world usage — not just visual output.",
+
+  "about_perf_title": "Performance",
+  "about_perf_copy": "Performance is built into the architecture, not added later. Every render, request, and interaction is optimized from the start.",
+  "about_ux_title": "UX Precision",
+  "about_ux_copy": "Interfaces are designed for clarity and speed, reducing friction and helping users complete actions faster.",
+  "about_scale_title": "Scalability",
+  "about_scale_copy": "Systems are structured to grow with modular components, clear state management, and maintainable code.",
+
+  "interactive_eyebrow": "Interactive",
+  "interactive_h2": "Frontend impact on performance",
+  "interactive_lead": "A simple example of how implementation quality affects performance, responsiveness, and user experience.",
+  "interactive_label": "Implementation quality:",
+  "interactive_conversion": "Estimated impact on conversion:",
+  "interactive_bar_1": "UX",
+  "interactive_bar_2": "Latency",
+  "interactive_bar_3": "Speed",
+  "interactive_lcp": "LCP:",
+  "interactive_fid": "Delay:",
+
+  "results_eyebrow": "Impact",
+  "results_h2": "Results That Matter",
+  "results_context": "Avg. across client projects",
+  "result_1": "Faster load times",
+  "result_2": "Higher conversion",
+  "result_3": "Performance scores",
+  "result_4": "Better UX",
+
+  "cta_eyebrow": "Start a project",
+  "cta_h2": "Have a product in mind?",
+  "cta_h2_2": "Let's build it right.",
+  "cta_copy": "Fast, scalable, and designed to deliver real results.",
+  "cta_note": "Available for selected projects and long-term collaboration.",
+  "cta_btn": "Get in touch",
+
+  "footer_built": "Built with Nuxt 3",
+
+  "error_terminal": "ERROR: route not found",
+  "error_copy": "The page you're looking for doesn't exist or has been moved.",
+  "error_back": "Back to home",
+
+  "mobile_menu_open": "Open menu",
+  "mobile_menu_close": "Close menu",
+
+  "page_title": "Juraj Paluš | Frontend Engineer",
+  "page_description": "Juraj Paluš — Frontend Engineer specialising in Vue, Nuxt & TypeScript. Building fast, scalable web apps that improve performance and drive measurable business results."
+}

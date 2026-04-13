@@ -19,12 +19,11 @@ onMounted(async () => {
   if (!root.value) return
 
   const { gsap } = await useGsap()
-  gsap.from(root.value, {
-    autoAlpha: 0,
-    duration: 0.6,
-    ease: 'power2.out',
-    y: -16
-  })
+  gsap.fromTo(
+    root.value,
+    { autoAlpha: 0, y: -16 },
+    { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power2.out' }
+  )
 
   const onScroll = () => {
     isScrolled.value = window.scrollY > 24
@@ -67,12 +66,10 @@ const onPrimaryCtaClick = () => {
 </script>
 
 <template>
-  <header ref="root" class="top-nav" :class="{ 'top-nav--scrolled': isScrolled }">
+  <header ref="root" class="top-nav" :class="{ 'top-nav--scrolled': isScrolled }" style="visibility: hidden">
     <div class="container top-nav__inner">
       <a href="#top" class="top-nav__brand" @click="mobileOpen = false">
-        <a href="#contact" class="top-nav__brand-available-wrap" :title="t('nav_available_tooltip')" @click.stop="mobileOpen = false">
-          <span class="top-nav__brand-available" :aria-label="t('nav_available_tooltip')" />
-        </a>
+        <span class="top-nav__brand-available" title="Available for work" aria-label="Available for work" />
         <span class="top-nav__brand-text">
           <span v-for="(char, i) in 'Juraj'" :key="i" class="top-nav__brand-char" :style="{ '--i': i }">{{ char }}</span><span class="top-nav__brand-dot">.Paluš</span>
         </span>
@@ -202,11 +199,6 @@ const onPrimaryCtaClick = () => {
   }
 }
 
-.top-nav__brand-available-wrap {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
 
 .top-nav__brand-available {
   background: var(--accent);

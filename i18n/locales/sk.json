@@ -1,0 +1,77 @@
+{
+  "nav_work": "Práce",
+  "nav_about": "O mne",
+  "nav_contact": "Kontakt",
+  "nav_cta": "Napíšte mi",
+  "nav_available_tooltip": "Dostupný pre nové projekty — ozvite sa",
+
+  "hero_kicker": "Frontend, ktorý prináša výsledky",
+  "hero_h1_1": "Rýchlosť na prvom mieste",
+  "hero_h1_2": "Juraj Paluš",
+  "hero_h1_3": "Navrhnuté pre výkon",
+  "hero_copy": "Frontend inžinier zameraný na výkon a UX.",
+  "hero_cta_work": "Projekty",
+  "hero_cta_contact": "Ozvite sa",
+
+  "value_1": "Rýchle. Škálovateľné. Konverzné.",
+  "value_2": "Frontend s dôrazom na výkon.",
+  "value_3": "Vue / Nuxt · TypeScript · React · Supabase · GSAP",
+
+  "projects_eyebrow": "Projekty",
+  "projects_h2": "Reálne výsledky",
+  "projects_intro": "Výkon, UX a škálovanie.",
+
+  "experience_eyebrow": "Skúsenosti",
+  "experience_h2": "Kde som pracoval",
+
+  "about_eyebrow": "Ako uvažujem",
+  "about_h2_1": "Frontend nie je len UI.",
+  "about_h2_accent": "Výkon. Škálovanie. Výsledky.",
+  "about_h2_2": "Na detailoch záleží.",
+  "about_copy": "Staviam frontend systémy, ktoré sú rýchle, udržateľné a pripravené na reálne použitie, nie len vizuálne pekné.",
+
+  "about_perf_title": "Výkon",
+  "about_perf_copy": "Výkon je zabudovaný do architektúry, nie pridaný neskôr. Každé renderovanie, požiadavka a interakcia je optimalizovaná od začiatku.",
+  "about_ux_title": "UX",
+  "about_ux_copy": "Rozhrania sú navrhnuté pre prehľadnosť a rýchlosť, aby používateľ vedel konať bez zbytočného rozmýšľania.",
+  "about_scale_title": "Škálovanie",
+  "about_scale_copy": "Systémy sú štruktúrované tak, aby rástli s modulárnymi komponentmi, jasným state managementom a udržateľným kódom.",
+
+  "interactive_eyebrow": "Interaktívny náhľad",
+  "interactive_h2": "Vplyv frontendu na výkon a UX",
+  "interactive_lead": "Ukážka toho, ako kvalita implementácie ovplyvňuje rýchlosť, odozvu a používateľský zážitok.",
+  "interactive_label": "Kvalita implementácie:",
+  "interactive_conversion": "Odhadovaný vplyv na konverzie:",
+  "interactive_bar_1": "UX",
+  "interactive_bar_2": "Latencia",
+  "interactive_bar_3": "Rýchlosť",
+  "interactive_lcp": "LCP:",
+  "interactive_fid": "Odozva:",
+
+  "results_eyebrow": "Dopad",
+  "results_h2": "Čo moja práca zlepšuje",
+  "results_context": "Priemer naprieč klientskými projektmi",
+  "result_1": "Rýchlejšie načítanie",
+  "result_2": "Vyššie konverzie",
+  "result_3": "Vyššie skóre aplikácie",
+  "result_4": "Lepšie UX",
+
+  "cta_eyebrow": "Spolupráca",
+  "cta_h2": "Máte nápad?",
+  "cta_h2_2": "Poďme ho spraviť hneď.",
+  "cta_copy": "Rýchlo, škálovateľne a s dôrazom na výsledok.",
+  "cta_note": "Dostupný pre vybrané projekty a dlhodobú spoluprácu.",
+  "cta_btn": "Kontaktovať",
+
+  "footer_built": "Built with Nuxt 3",
+
+  "error_terminal": "CHYBA: stránka nenájdená",
+  "error_copy": "Stránka, ktorú hľadáte, neexistuje alebo bola presunutá.",
+  "error_back": "Späť domov",
+
+  "mobile_menu_open": "Otvoriť menu",
+  "mobile_menu_close": "Zavrieť menu",
+
+  "page_title": "Juraj Paluš | Frontend Engineer",
+  "page_description": "Juraj Paluš — Frontend inžinier špecializovaný na Vue, Nuxt a TypeScript. Staviam rýchle, škálovateľné webové aplikácie s dôrazom na výkon a merateľné výsledky."
+}
