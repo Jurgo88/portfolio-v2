@@ -1,4 +1,8 @@
+let cached: { gsap: any; ScrollTrigger: any } | null = null
+
 export const useGsap = async () => {
+  if (cached) return cached
+
   const gsapModule = await import('gsap')
   const scrollTriggerModule = await import('gsap/ScrollTrigger')
 
@@ -11,5 +15,6 @@ export const useGsap = async () => {
     gsap.globalTimeline.timeScale(0)
   }
 
-  return { gsap, ScrollTrigger }
+  cached = { gsap, ScrollTrigger }
+  return cached
 }

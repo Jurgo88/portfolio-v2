@@ -8,6 +8,7 @@ export default defineNuxtConfig({
         { code: 'en', language: 'en-US', name: 'English', files: ['en.json'] },
         { code: 'sk', language: 'sk-SK', name: 'Slovenčina', files: ['sk.json'] },
       ],
+      langDir: './i18n/locales/',
       defaultLocale: 'en',
       strategy: 'prefix_except_default',
       detectBrowserLanguage: {
@@ -28,6 +29,14 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+      link: [
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap',
+        },
+      ],
       meta: [
         { name: 'author', content: 'Juraj Paluš' },
         { name: 'theme-color', content: '#9aff2d' },

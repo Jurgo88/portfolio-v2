@@ -15,7 +15,13 @@ const { t, locale } = useLocale()
 useHead(computed(() => ({
   title: t('page_title'),
   link: [
-    { rel: 'canonical', href: 'https://jurgo.sk' }
+    {
+      rel: 'canonical',
+      href: locale.value === 'sk' ? 'https://jurgo.sk/sk' : 'https://jurgo.sk'
+    },
+    { rel: 'alternate', hreflang: 'en', href: 'https://jurgo.sk' },
+    { rel: 'alternate', hreflang: 'sk', href: 'https://jurgo.sk/sk' },
+    { rel: 'alternate', hreflang: 'x-default', href: 'https://jurgo.sk' },
   ],
   meta: [
     { name: 'description', content: t('page_description') },
