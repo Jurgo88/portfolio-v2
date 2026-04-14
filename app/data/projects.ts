@@ -44,7 +44,7 @@ export const projects: ProjectDetail[] = [
       title: "Pristupio Platform",
       summary: {
         en: "A scalable SaaS platform built for long-term product growth — designed with Vue 3, Pinia, and Supabase from the ground up.",
-        sk: "Škálovateľná SaaS platforma vytvorená pre dlhodobý rast produktu — navrhnutá s Vue 3, Pinia a Supabase od základu.",
+        sk: "Škálovateľná SaaS platforma vytvorená pre dlhodobý rast produktu - navrhnutá s Vue 3, Pinia a Supabase od základu.",
       },
     },
     problem: {
@@ -53,7 +53,7 @@ export const projects: ProjectDetail[] = [
     },
     approach: {
       en: `Rather than building fast and refactoring later, I prioritised architecture first. Each product domain — auth, content, billing — was isolated into its own composable and Pinia store. UI components were designed to be context-unaware: purely presentational, driven by props. This separation kept individual pieces testable and replaceable.`,
-      sk: `Namiesto rýchleho vývoja s neskorším refaktoringom som najprv navrhol systémovú architektúru. Každá produktová doména — autentifikácia, obsah, fakturácia — bola izolovaná do vlastného composable a Pinia storu. UI komponenty boli navrhnuté ako kontextovo nezávislé: čisto prezentačné, riadené propmi. Toto oddelenie zachovalo jednotlivé časti testovateľné a nahraditeľné.`,
+      sk: `Namiesto rýchleho vývoja s neskorším refaktoringom som najprv navrhol systémovú architektúru. Každá produktová doména — autentifikácia, obsah, fakturácia - bola izolovaná do vlastného composable a Pinia storu. UI komponenty boli navrhnuté ako kontextovo nezávislé: čisto prezentačné, riadené propmi. Toto oddelenie zachovalo jednotlivé časti testovateľné a nahraditeľné.`,
     },
     architecture: {
       en: [

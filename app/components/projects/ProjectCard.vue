@@ -6,11 +6,12 @@ defineProps<{
 }>()
 
 const { locale } = useLocale()
+const localePath = useLocalePath()
 </script>
 
 <template>
   <article class="project-card">
-    <NuxtLink :to="`/projects/${project.slug}`" class="project-card__link">
+    <NuxtLink :to="localePath(`/projects/${project.slug}`)" class="project-card__link">
       <div class="project-card__media">
         <img
           :src="project.image"
