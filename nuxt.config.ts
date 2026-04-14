@@ -8,8 +8,7 @@ export default defineNuxtConfig({
         { code: 'en', language: 'en-US', name: 'English', files: ['en.json'] },
         { code: 'sk', language: 'sk-SK', name: 'Slovenčina', files: ['sk.json'] },
       ],
-      langDir: './i18n/locales/',
-      defaultLocale: 'en',
+defaultLocale: 'en',
       strategy: 'prefix_except_default',
       detectBrowserLanguage: {
         useCookie: true,
