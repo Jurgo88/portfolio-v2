@@ -21,6 +21,7 @@ defaultLocale: 'en',
   runtimeConfig: {
     public: {
       clarityId: '', // overridden by NUXT_PUBLIC_CLARITY_ID in .env
+      postHogKey: '', // overridden by NUXT_PUBLIC_POST_HOG_KEY in .env
     },
   },
   css: ['~/assets/scss/main.scss'],

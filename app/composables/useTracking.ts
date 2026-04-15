@@ -1,6 +1,8 @@
 type TrackingPayload = Record<string, string | number | boolean>
 
 export const useTracking = () => {
+  const { $posthog } = useNuxtApp()
+
   const trackEvent = (eventName: string, payload: TrackingPayload = {}) => {
     if (!import.meta.client) {
       return
@@ -20,6 +22,10 @@ export const useTracking = () => {
 
     if (typeof w.plausible === 'function') {
       w.plausible(eventName, { props: payload })
+    }
+
+    if (typeof $posthog === 'function') {
+      $posthog().capture(eventName, payload)
     }
   }
 
