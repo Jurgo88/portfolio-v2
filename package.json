@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
+    "puppeteer": "^24.41.0",
     "sass-embedded": "^1.99.0"
   }
 }

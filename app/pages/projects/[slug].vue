@@ -67,6 +67,15 @@ useHead(computed(() => ({
 })))
 
 const root = ref<HTMLElement | null>(null)
+const showcaseEl = ref<HTMLElement | null>(null)
+const browserEl = ref<HTMLElement | null>(null)
+const phoneEl = ref<HTMLElement | null>(null)
+const phoneRefs = ref<HTMLElement[]>([])
+const activeShot = ref(0)
+
+const shotLabels = computed(() =>
+  Object.fromEntries((project.screenshotLabels ?? []).map((l, i) => [i, l]))
+)
 
 onMounted(async () => {
   if (!root.value) return
@@ -96,6 +105,59 @@ onMounted(async () => {
         start: 'top 82%'
       }
     })
+  })
+
+  // Showcase entrance
+  if (showcaseEl.value) {
+    const targets = project.mobileApp
+      ? phoneRefs.value
+      : [browserEl.value, phoneEl.value]
+
+    gsap.from(targets, {
+      autoAlpha: 0,
+      y: 48,
+      rotateX: 6,
+      duration: 0.9,
+      ease: 'power3.out',
+      stagger: 0.15,
+      scrollTrigger: {
+        trigger: showcaseEl.value,
+        start: 'top 80%',
+      }
+    })
+  }
+
+  // Mouse tilt
+  const onMouseMove = (e: MouseEvent) => {
+    if (!showcaseEl.value) return
+    const rect = showcaseEl.value.getBoundingClientRect()
+    const cx = rect.left + rect.width / 2
+    const cy = rect.top + rect.height / 2
+    const dx = (e.clientX - cx) / (rect.width / 2)
+    const dy = (e.clientY - cy) / (rect.height / 2)
+
+    if (project.mobileApp) {
+      phoneRefs.value.forEach((el, i) => {
+        const depth = 6 + i * 2
+        gsap.to(el, { rotateY: dx * depth, rotateX: -dy * 4, duration: 0.6, ease: 'power2.out', transformPerspective: 1000 })
+      })
+    } else {
+      gsap.to(browserEl.value, { rotateY: dx * 6, rotateX: -dy * 4, duration: 0.6, ease: 'power2.out', transformPerspective: 1000 })
+      gsap.to(phoneEl.value, { rotateY: dx * 9, rotateX: -dy * 5, duration: 0.6, ease: 'power2.out', transformPerspective: 1000 })
+    }
+  }
+
+  const onMouseLeave = () => {
+    const targets = project.mobileApp ? phoneRefs.value : [browserEl.value, phoneEl.value]
+    gsap.to(targets, { rotateY: 0, rotateX: 0, duration: 0.8, ease: 'elastic.out(1, 0.6)' })
+  }
+
+  showcaseEl.value?.addEventListener('mousemove', onMouseMove)
+  showcaseEl.value?.addEventListener('mouseleave', onMouseLeave)
+
+  onUnmounted(() => {
+    showcaseEl.value?.removeEventListener('mousemove', onMouseMove)
+    showcaseEl.value?.removeEventListener('mouseleave', onMouseLeave)
   })
 })
 </script>
@@ -127,6 +189,62 @@ onMounted(async () => {
           <div class="project-hero__result reveal">
             <span class="result-label">{{ labels.result }}</span>
             <span class="result-value">{{ l(project.result) }}</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screenshots -->
+      <section v-if="project.screenshots?.length" class="cs-screenshots">
+        <div class="container">
+          <!-- Mobile app layout: 3 phones side by side -->
+          <div v-if="project.mobileApp" class="showcase showcase--phones" ref="showcaseEl">
+            <div
+              v-for="(src, i) in [...(project.screenshots ?? []), project.mobileScreenshot].filter(Boolean)"
+              :key="src"
+              class="phone"
+              :ref="el => { if (el) phoneRefs[i] = el as HTMLElement }"
+            >
+              <div class="phone__inner">
+                <img :src="src!" :alt="`${project.title} screen ${i + 1}`" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop app layout: browser + phone -->
+          <div v-else class="showcase" ref="showcaseEl">
+            <div class="browser" ref="browserEl">
+              <div class="browser__bar">
+                <div class="browser__dots">
+                  <span /><span /><span />
+                </div>
+                <div class="browser__url">{{ project.screenshotUrl ?? '' }}</div>
+              </div>
+              <div class="browser__body">
+                <Transition name="shot">
+                  <img
+                    :key="activeShot"
+                    :src="project.screenshots[activeShot]"
+                    :alt="`${project.title} screenshot ${activeShot + 1}`"
+                  />
+                </Transition>
+              </div>
+              <div v-if="project.screenshots.length > 1" class="browser__tabs">
+                <button
+                  v-for="(_, i) in project.screenshots"
+                  :key="i"
+                  :class="{ active: activeShot === i }"
+                  @click="activeShot = i"
+                >
+                  {{ shotLabels[i] ?? `View ${i + 1}` }}
+                </button>
+              </div>
+            </div>
+
+            <div v-if="project.mobileScreenshot" class="phone" ref="phoneEl">
+              <div class="phone__inner">
+                <img :src="project.mobileScreenshot" :alt="`${project.title} mobile`" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -351,6 +469,193 @@ onMounted(async () => {
   color: var(--accent);
   font-size: 1rem;
   font-weight: 700;
+}
+
+// ─── Screenshots ─────────────────────────────────────────────────────────────
+.cs-screenshots {
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  padding: 80px 0 100px;
+}
+
+.showcase {
+  align-items: flex-end;
+  display: flex;
+  gap: 24px;
+  perspective: 1200px;
+
+  &--phones {
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+
+    // stredný telefón je väčší
+    .phone:nth-child(2) {
+      transform: translateY(-24px) scale(1.06);
+      z-index: 1;
+
+      .phone__inner {
+        box-shadow:
+          0 60px 120px rgba(0, 0, 0, 0.6),
+          0 0 0 1px rgba(255, 255, 255, 0.07),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+// ─── Browser mockup ───────────────────────────────────────────────────────────
+.browser {
+  background: #13161a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.browser__bar {
+  align-items: center;
+  background: #1c1f24;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  gap: 10px;
+  padding: 10px 16px;
+}
+
+.browser__dots {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+
+  span {
+    border-radius: 50%;
+    display: block;
+    height: 11px;
+    width: 11px;
+
+    &:nth-child(1) { background: #ff5f57; }
+    &:nth-child(2) { background: #febc2e; }
+    &:nth-child(3) { background: #28c840; }
+  }
+}
+
+.browser__url {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  color: var(--muted);
+  flex: 1;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  padding: 4px 12px;
+  text-align: center;
+}
+
+.browser__body {
+  display: grid;
+  position: relative;
+
+  img {
+    display: block;
+    grid-area: 1 / 1;
+    height: auto;
+    width: 100%;
+  }
+}
+
+.browser__tabs {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  gap: 4px;
+  padding: 10px 12px;
+
+  button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 5px 14px;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+    }
+
+    &.active {
+      background: rgba(154, 255, 45, 0.1);
+      border-color: rgba(154, 255, 45, 0.35);
+      color: var(--accent);
+    }
+  }
+}
+
+// ─── Phone mockup ─────────────────────────────────────────────────────────────
+.phone {
+  flex-shrink: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+  width: 210px;
+}
+
+.phone__inner {
+  background: #13161a;
+  border: 8px solid #22262c;
+  border-radius: 40px;
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+
+  img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+}
+
+// ─── Screenshot transition ────────────────────────────────────────────────────
+.shot-enter-active,
+.shot-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.shot-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.shot-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.shot-leave-active {
+  position: absolute;
+  width: 100%;
+}
+
+@media (max-width: 860px) {
+  .showcase {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .phone {
+    width: 240px;
+  }
 }
 
 // ─── Case Study Sections ──────────────────────────────────────────────────────

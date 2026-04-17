@@ -25,6 +25,11 @@ export interface ProjectDetail {
   outcome: L10n
   stack: string[]
   improvements?: { en: string[]; sk: string[] }
+  screenshots?: string[]
+  screenshotLabels?: string[]
+  mobileScreenshot?: string
+  screenshotUrl?: string
+  mobileApp?: boolean
 }
 
 export const projects: ProjectDetail[] = [
@@ -40,6 +45,13 @@ export const projects: ProjectDetail[] = [
       sk: "Škálovateľná architektúra umožňujúca rýchle pridávanie funkcií",
     },
     image: "/previews/project-pristupio.svg",
+    screenshots: [
+      "/previews/pristupio-dashboard-nalezy.png",
+      "/previews/pristupio-dashboard.png",
+    ],
+    screenshotLabels: ["Nálezy", "Dashboard"],
+    mobileScreenshot: "/previews/pristupio-mobile.png",
+    screenshotUrl: "pristupio.com/dashboard",
     hero: {
       title: "Pristupio Platform",
       summary: {
@@ -144,6 +156,13 @@ export const projects: ProjectDetail[] = [
     },
 
     image: "/previews/project-epassport.svg",
+    screenshots: [
+      "/previews/epassport-mobile-menu.png",
+      "/previews/epassport-mobile-checklist.png",
+    ],
+    mobileScreenshot: "/previews/epassport-mobile-form.png",
+    screenshotUrl: "epassport.netlify.app",
+    mobileApp: true,
 
     hero: {
       title: "ePassport System",
@@ -263,6 +282,13 @@ export const projects: ProjectDetail[] = [
     },
 
     image: "/previews/project-photographer.svg",
+    screenshots: [
+      "/previews/photographer-hero.png",
+      "/previews/photographer-gallery.png",
+    ],
+    screenshotLabels: ["Hero", "Galéria"],
+    mobileScreenshot: "/previews/photographer-mobile.png",
+    screenshotUrl: "peterzigo.sk",
 
     hero: {
       title: "Photographer Portfolio",
