@@ -42,12 +42,6 @@ defaultLocale: 'en',
         { name: 'theme-color', content: '#9aff2d' },
         { name: 'color-scheme', content: 'dark' },
       ],
-      script: process.env.NUXT_PUBLIC_CLARITY_ID ? [
-        {
-          src: `https://www.clarity.ms/tag/${process.env.NUXT_PUBLIC_CLARITY_ID}`,
-          async: true,
-        },
-      ] : [],
     },
   },
 })

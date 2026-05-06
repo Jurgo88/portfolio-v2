@@ -73,3 +73,14 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Analytics Setup
+
+Create a `.env` file in the project root and add your keys:
+
+```bash
+NUXT_PUBLIC_CLARITY_ID=YOUR_CLARITY_PROJECT_ID
+NUXT_PUBLIC_POST_HOG_KEY=YOUR_POSTHOG_PROJECT_KEY
+```
+
+Clarity loads automatically on the client when `NUXT_PUBLIC_CLARITY_ID` is set.
